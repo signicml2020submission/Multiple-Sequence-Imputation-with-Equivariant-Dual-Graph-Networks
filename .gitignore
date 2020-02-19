@@ -1,0 +1,22 @@
+dataset.tar.gz
+*.zip
+*.ipynb
+main-dev.py
+*.pdf
+yaml_deprecated
+
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+.ipynb_checkpoints/
+dataset/
+model/
+log/
+model-*/
+.vscode/
+
+# C extensions
+*.so
+
+artifacts/

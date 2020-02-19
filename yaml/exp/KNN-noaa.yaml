@@ -1,0 +1,26 @@
+model:
+  MODEL: KNN
+  input_node_dim: 6
+  output_node_dim: 1
+dataset:
+  TYPE: noaa # nba-0021500225
+  dataset_path: ./dataset/noaa_pt_states_withloc
+  num_checked_seqs: 200
+  tr_ratio: 0.7 
+  val_ratio: 0.1
+  te_ratio: 0.2
+  missing_rate: 0.2
+optimizer:
+  initial_lr: 0.001
+  weight_decay: 0.0005
+  reducer: SUM
+train:
+  batch_size: 8
+  num_epochs: 1
+  input_seq_length: 7   # number of processing steps
+  val_check_step: 1
+  filled_rgn: False
+test:
+  threshold: 0.001
+  num_refill_try: 100
+seed: 42

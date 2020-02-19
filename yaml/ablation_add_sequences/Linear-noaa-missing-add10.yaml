@@ -1,0 +1,28 @@
+dataset:
+  TYPE: noaa-missing-10p-add10
+  dataset_path: ./dataset/noaa_pt_states_withloc
+  limit_node_num_added: 10
+  missing_rate: 0.2
+  node_unseen_rate: 0.1
+  num_checked_seqs: 200
+  te_ratio: 0.2
+  tr_ratio: 0.7
+  val_ratio: 0.1
+model:
+  MODEL: LinearRegression
+  input_node_dim: 6
+  output_node_dim: 1
+optimizer:
+  initial_lr: 0.001
+  reducer: SUM
+  weight_decay: 0.0005
+seed: 42
+test:
+  num_refill_try: 100
+  threshold: 0.001
+train:
+  batch_size: 8
+  filled_rgn: false
+  input_seq_length: 7
+  num_epochs: 1
+  val_check_step: 1

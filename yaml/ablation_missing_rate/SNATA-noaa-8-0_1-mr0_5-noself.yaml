@@ -1,0 +1,36 @@
+dataset:
+  TYPE: noaa-mr0_5-noself
+  dataset_path: ./dataset/noaa_pt_states_withloc
+  missing_rate: 0.5
+  num_checked_seqs: 200
+  te_ratio: 0.2
+  tr_ratio: 0.7
+  val_ratio: 0.1
+model:
+  MODEL: SNATA
+  edge_emb_dim: 200
+  num_spatial_hops: 1
+  rgn_global_dim: 200
+  rgn_hidden_dim: 200
+  rgn_input_edge_dim: 200
+  rgn_input_node_dim: 6
+  sgn_global_dim: 200
+  sgn_hidden_dim: 200
+  sgn_input_edge_dim: 200
+  sgn_input_node_dim: 6
+  sgn_output_node_dim: 1
+optimizer:
+  initial_lr: 0.001
+  reducer: SUM
+  weight_decay: 0.0005
+seed: 42
+test:
+  num_refill_try: 100
+  threshold: 0.001
+train:
+  batch_size: 8
+  filled_rgn: false
+  input_seq_length: 7
+  num_epochs: 100
+  use_self_supervision: false
+  val_check_step: 1

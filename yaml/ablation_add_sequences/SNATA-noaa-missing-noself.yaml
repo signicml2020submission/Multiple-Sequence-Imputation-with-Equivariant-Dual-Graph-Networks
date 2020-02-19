@@ -1,0 +1,38 @@
+model:
+  MODEL: SNATA
+  edge_emb_dim: 200
+  rgn_input_edge_dim: 200
+  rgn_input_node_dim: 6
+  rgn_global_dim: 200
+  rgn_hidden_dim: 200
+  sgn_input_edge_dim: 200
+  sgn_input_node_dim: 6    # [x,y,0,0,0] (x,y) coord + one-hot encoding
+  sgn_global_dim: 200
+  sgn_hidden_dim: 200
+  sgn_output_node_dim: 1
+  num_spatial_hops: 1 
+dataset:
+  TYPE: noaa-missing-10p-noself # nba-0021500225
+  dataset_path: ./dataset/noaa_pt_states_withloc
+  num_checked_seqs: 200
+  tr_ratio: 0.7 
+  val_ratio: 0.1
+  te_ratio: 0.2
+  missing_rate: 0.2
+  node_unseen_rate: 0.1
+optimizer:
+  initial_lr: 0.001
+  weight_decay: 0.0005
+  reducer: SUM
+train:
+  batch_size: 8
+  num_epochs: 100
+  input_seq_length: 7   # number of processing steps
+  val_check_step: 1
+  test_check_step: 50
+  filled_rgn: False
+  use_self_supervision: false
+test:
+  threshold: 0.001
+  num_refill_try: 100
+seed: 42
